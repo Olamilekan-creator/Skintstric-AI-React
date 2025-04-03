@@ -1,12 +1,17 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import './style.css';
-import MergeSecttions from "./UI/MergeSections";
+import Index from "./component/Index";
 
 function App() {
   return (
+  <Router>
     <div>
-      <MergeSecttions />
+      <Routes>
+   <Route path="/" element={<Index />} />
+    </Routes>
     </div>
+    </Router>
   );
 }
 

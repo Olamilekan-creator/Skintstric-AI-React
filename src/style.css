@@ -8,6 +8,17 @@
 
 .click {
   cursor: pointer;
+<<<<<<< HEAD
+=======
+  transition: all 300ms ease;
+}
+.click:hover {
+  transition: scale(1.1);
+}
+
+.click:active {
+  transform: scale(0.95);
+>>>>>>> skinstric ai react index
 }
 
 /* Header */
@@ -66,27 +77,35 @@
 
 .header__container {
   display: flex;
+<<<<<<< HEAD
   justify-content: space-around;
   width: 100%;
   margin: 0 auto;
+=======
+  width: 100%;
+>>>>>>> skinstric ai react index
   align-items: center;
   height: 70vh;
   position: relative;
   overflow: hidden;
 }
 
+<<<<<<< HEAD
 .first__page {
   display: flex;
   align-items: center;
   position: absolute;
 }
 
+=======
+>>>>>>> skinstric ai react index
 .landing__title {
   font-size: 90px;
   font-weight: 300;
   margin: 0 auto;
   margin-top: 7%;
   max-width: 500px;
+<<<<<<< HEAD
 }
 
 .arrow__prev {
@@ -130,6 +149,9 @@
 
 .fa-solid {
   font-size: 20px;
+=======
+  transition: transform 0.3s ease-in-out;
+>>>>>>> skinstric ai react index
 }
 
 .para {
@@ -142,6 +164,7 @@ margin-top: 6%;
 padding-left: 20px;
 }
 
+<<<<<<< HEAD
 .landing__front {
     display: flex;
     gap: 30px;
@@ -184,6 +207,8 @@ padding-left: 20px;
 }
 
 
+=======
+>>>>>>> skinstric ai react index
 /* Tablets, smartphones, small smartphones */
 
 @media (max-width: 1024px) {
@@ -240,6 +265,7 @@ padding-left: 20px;
 }
 }
 
+<<<<<<< HEAD
 /* Page 001 */
 
 .page__container {
@@ -270,6 +296,8 @@ padding-left: 20px;
   padding-left: 10px;
 }
 
+=======
+>>>>>>> skinstric ai react index
 .page1__wrapper {
   display: flex;
   align-items: center;
@@ -283,7 +311,12 @@ right: -15%;
   width: 500px;
   position: absolute;
   transform: rotate(-45deg);
+<<<<<<< HEAD
   position: absolute;
+=======
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+>>>>>>> skinstric ai react index
 }
 
 .box2 {
@@ -293,17 +326,33 @@ right: -15%;
   width: 460px;
   position: absolute;
   transform: rotate(-45deg);
+<<<<<<< HEAD
   position: absolute;
+=======
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.page1__wrapper:hover .box1,
+.page1__wrapper:hover .box2 {
+  opacity: 1;
+>>>>>>> skinstric ai react index
 }
 
 .box3 {
   right: -13%;
+<<<<<<< HEAD
  display: flex;
  justify-content: flex-start;
   border: 2px dotted #242424;
   height: 420px;
   width: 420px;
   position: absolute;
+=======
+  border: 2px dotted #242424;
+  height: 420px;
+  width: 420px;
+>>>>>>> skinstric ai react index
   transform: rotate(-45deg);
   position: absolute;
 }
@@ -315,7 +364,11 @@ right: -15%;
   align-items: center;
   transform: rotate(45deg);
   left: 4%;
+<<<<<<< HEAD
   top: 20%;
+=======
+  top: 19%;
+>>>>>>> skinstric ai react index
 }
 
 .small__box1 {
@@ -325,6 +378,10 @@ right: -15%;
   bottom: -20px;
   position: absolute;
   transform: rotate(-45deg);
+<<<<<<< HEAD
+=======
+  transition: background-color 0.3s ease;
+>>>>>>> skinstric ai react index
 }
 
 .small__box2 {
@@ -334,7 +391,12 @@ right: -15%;
   position: absolute;
   transform: rotate(-45deg);
   top: -10px;
+<<<<<<< HEAD
   margin: -2px 7px;
+=======
+  margin: -4px 8px;
+  transition: transform 0.3s ease;
+>>>>>>> skinstric ai react index
 }
 
 .forward__arrow {
@@ -346,10 +408,97 @@ right: -15%;
   font-weight: 400;
 }
 
+<<<<<<< HEAD
 .sophisticated__text {
   display: flex;
   align-items: center;
   margin-top: 20%;
+=======
+.arrows {
+  display: flex;
+  align-items: center;
+}
+
+.left__page1--wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left__box1 {
+  left: -15%;
+  border: 0.5px dotted #242424;
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.left__box2 {
+ left: -14%;
+  border: 1px dotted #242424;
+  height: 460px;
+  width: 460px;
+  position: absolute;
+  transform: rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.left__box3 {
+left: -13%;
+ display: flex;
+ justify-content: flex-end;
+  border: 2px dotted #242424;
+  height: 420px;
+  width: 420px;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.left__page1--wrapper:hover .left__box1,
+.left__page1--wrapper:hover .left__box2 {
+  opacity: 1;
+}
+
+.backward {
+  position: absolute;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transform: rotate(45deg);
+  top: 10%;
+  transform: rotate(-45deg);
+}
+
+.right__small--box1 {
+  border: 2px solid #242424;
+  width: 60px;
+  height: 60px;
+  bottom: -20px;
+  position: absolute;
+  transform: rotate(-45deg);
+  transition: background-color 0.3s ease;
+}
+
+.right__small--box2 {
+  border: 2px dotted #242424;
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  transform: rotate(45deg);
+  top: -14px;
+  margin: -2px 7px;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow1 {
+  display: flex;
+  justify-content: flex-end;
+>>>>>>> skinstric ai react index
 }
 
 /* Tablet, smartphones, small smartphones */
@@ -426,7 +575,11 @@ flex-direction: column;
 .web__box--wrapper {
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
   margin-top: 20%;
+=======
+  margin-top: 26%;
+>>>>>>> skinstric ai react index
   align-items: center;
 }
 
@@ -517,6 +670,7 @@ flex-direction: column;
 
 /* Analysis */
 
+<<<<<<< HEAD
 .analysis__box {
   border: 1px solid #242424;
   padding: 10px 10px;
@@ -567,6 +721,8 @@ flex-direction: column;
   color: grey;
 }
 
+=======
+>>>>>>> skinstric ai react index
 .analysis__back {
   display: flex;
   gap: 30px;
@@ -575,7 +731,11 @@ flex-direction: column;
 .analysis__box--wrapper {
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
   margin-top: 15%;
+=======
+  margin-top: 27%;
+>>>>>>> skinstric ai react index
   align-items: center;
 }
 
@@ -604,10 +764,13 @@ flex-direction: column;
   padding: 5px 20px;
   transform: rotate(45deg);
   margin: -10px 0;
+<<<<<<< HEAD
  
 }
 .analysis__front--box:hover {
 transition: 0.3s ease;
+=======
+>>>>>>> skinstric ai react index
 }
 
 .front__back {
@@ -709,6 +872,10 @@ transition: 0.3s ease;
   align-items: flex-start;
   max-width: 1400px;
   margin: 0 auto;
+<<<<<<< HEAD
+=======
+  position: relative;
+>>>>>>> skinstric ai react index
 }
 
 .cam__box--wrapper {
@@ -722,7 +889,10 @@ transition: 0.3s ease;
   border: 0.5px dotted #242424;
   height: 300px;
   width: 300px;
+<<<<<<< HEAD
   position: absolute;
+=======
+>>>>>>> skinstric ai react index
   transform: rotate(-45deg);
   position: absolute;
 }
@@ -731,7 +901,10 @@ transition: 0.3s ease;
   border: 1px dotted #242424;
   height: 270px;
   width: 270px;
+<<<<<<< HEAD
   position: absolute;
+=======
+>>>>>>> skinstric ai react index
   transform: rotate(-45deg);
   position: absolute;
   margin: 25px 25px;
@@ -741,7 +914,10 @@ transition: 0.3s ease;
   border: 2px dotted #242424;
   height: 240px;
   width: 240px;
+<<<<<<< HEAD
   position: absolute;
+=======
+>>>>>>> skinstric ai react index
   transform: rotate(-45deg);
   position: absolute;
   margin: 50px 50px;
@@ -784,6 +960,10 @@ transition: 0.3s ease;
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> skinstric ai react index
 .gallery,
 .shutter {
   padding: 7px 7px;
@@ -794,6 +974,10 @@ transition: 0.3s ease;
   justify-content: space-between;
   margin: 19% 0;
   align-items: center;
+<<<<<<< HEAD
+=======
+  position: relative;
+>>>>>>> skinstric ai react index
 }
 
 .text__cam {
@@ -1039,13 +1223,26 @@ transition: 0.3s ease;
 }
 
 .ellipse__text {
+<<<<<<< HEAD
   position: absolute;
+=======
+display: flex;
+justify-content: center;
+margin-top: 10vh;
+>>>>>>> skinstric ai react index
 }
 
 .picture {
   display: flex;
+<<<<<<< HEAD
   align-items: center;
   gap: 20px;
+=======
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30vh;
+>>>>>>> skinstric ai react index
 }
 
 .picture__container {
@@ -1098,8 +1295,13 @@ transition: 0.3s ease;
 .picture__analysis {
   display: flex;
   justify-content: space-between;
+<<<<<<< HEAD
   margin: 5% 0;
   align-items: center;
+=======
+  align-items: end;
+  margin-top: 34vh;
+>>>>>>> skinstric ai react index
 }
 
 .picture__front--text {
@@ -1172,6 +1374,17 @@ transition: 0.3s ease;
   gap: 10px;
   align-items: center;
   margin: 20px 0;
+<<<<<<< HEAD
+=======
+  font-size: 12px;
+  font-weight: 350;
+  color: #fcfcfc;
+}
+
+
+.option__subtitle--icon:hover {
+  color: #808080;
+>>>>>>> skinstric ai react index
 }
 
 .diamond__icon {
@@ -1184,6 +1397,7 @@ transition: 0.3s ease;
   display: none;
 }
 
+<<<<<<< HEAD
 .hold__count {
 }
 
@@ -1208,6 +1422,8 @@ transition: 0.3s ease;
   display: flex;
   justify-content: center;
 }
+=======
+>>>>>>> skinstric ai react index
 
 /* Tablet, smartphones, small smartphones */
 
@@ -1234,6 +1450,7 @@ transition: 0.3s ease;
     width: 100%;
     margin: 0 auto;
   }
+<<<<<<< HEAD
   .face__wrapper {
     padding: 1px 0;
     gap: 20px;
@@ -1243,6 +1460,12 @@ transition: 0.3s ease;
     flex-direction: column;
     align-items: center;
   }
+=======
+ .ellipse__text {
+  margin-top: 5vh;
+ }
+
+>>>>>>> skinstric ai react index
 }
 
 @media (max-width: 430px) {
@@ -1251,6 +1474,7 @@ transition: 0.3s ease;
     width: 100%;
     margin: 0 auto;
   }
+<<<<<<< HEAD
   .face__wrapper {
     flex-direction: column;
   }
@@ -1264,6 +1488,12 @@ transition: 0.3s ease;
     height: 400px;
     width: 300px;
   }
+=======
+ .picture__analysis {
+  margin-top: 27vh;
+ }
+
+>>>>>>> skinstric ai react index
 }
 
 /* Preparing */
