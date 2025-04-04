@@ -6,6 +6,16 @@ import shutterIcon from '../assets/shutter-icon.png'
 import { Link } from "react-router-dom";
 
 const Camera = () => {
+
+    const handleGalleryAccess = async () => {
+        try {
+          const galleryAccess = await navigator.mediaDevices.getUserMedia({ video: true });
+          console.log('Gallery access granted:', galleryAccess);
+        } catch (error) {
+          console.error('Error accessing gallery:', error);
+        }
+      };
+      
     return (
 <section id="landing">
       <div className="container">
@@ -43,8 +53,8 @@ const Camera = () => {
                     <h3 className="analysis__text">ALLOW A.I. TO ACCESS YOUR CAMERA</h3>
                    </div>
                     <div className="leave__stay">
-                        <h3 className="leave__text">DENY</h3>
-                        <h3 className="stay__text">ALLOW</h3>
+                        <h3 className="leave__text click">DENY</h3>
+                        <h3 className="stay__text click">ALLOW</h3>
                     </div>
                     </div>
 
@@ -53,21 +63,21 @@ const Camera = () => {
                   <div className="cam1__box2"></div>
                   <div className="cam1__box3"></div>
                   <div className="camera1">
-                    <img src={gallery} alt="" className="gallery" />
+                    <img src={gallery} alt="" className="gallery" onClick={handleGalleryAccess} style={{ cursor: 'pointer' }} />
                   </div>
                 </div>
                 </div>
-                <h3 className="allow__text">ALLOW A.I. <br /> TO SCAN YOUR FACE</h3>
+                <h3 className="allow__text">ALLOW A.I. <br /> TO ACCESS GALLERY</h3>
 
                 <div className="cam__cam--analysis">
-                    <div className="analysis__back">
+                    <div className="analysis__back click">
                         <div className="back__box">
                           <FontAwesomeIcon icon={faCaretLeft} className="back__back" />
                         </div>
                         <h3 className="back__text">BACK</h3>
                       </div>
   
-                    <div className="analysis__front">
+                    <div className="analysis__front click">
                       <h3 className="front__text">PROCEED</h3>
                       <div className="analysis__front--box">
                         <FontAwesomeIcon icon={faCaretRight} className="front__back" />
