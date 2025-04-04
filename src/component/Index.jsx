@@ -55,11 +55,11 @@ const Index = () => {
                       <div className="box3">
                       <div className="forward">
                           <h3 className="forward__text">TAKE TEST</h3>
-                          <div className="arrow click">
+                          <Link to="/introduce" className="arrow click">
                               <div className="small__box1" id="outerBox"></div>
                               <div className="small__box2" id="innerBox"></div>
                               <FontAwesomeIcon icon={faCaretRight} className="forward__arrow" />
-                          </div>  
+                          </Link>  
                       </div>
                       </div>
                       </div>
