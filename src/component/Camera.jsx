@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import gallery from "../assets/gallery (1).png";
@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 
 const Camera = () => {
 const fileInputRef =useRef(null);
+const [showAnalysis, setShowAnalysis] = useState(false);
+const [imageUploaded, setImageUploaded] = useState(false);
 
 const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -15,6 +17,10 @@ const handleFileChange = (event) => {
     } else {
         console.log("No file selected.");
     }
+};
+
+const handleShutterClick = () => {
+    setShowAnalysis(true);
 };
 
   return (
@@ -45,7 +51,7 @@ const handleFileChange = (event) => {
                     <div className="cam__box1"></div>
                     <div className="cam__box2"></div>
                     <div className="cam__box3"></div>
-                    <div className="camera">
+                    <div className="camera" onClick={handleShutterClick}>
                       <img src={shutterIcon} alt="" className="shutter" />
                     </div>
                   </div>
@@ -54,6 +60,9 @@ const handleFileChange = (event) => {
                     <h3 className="allow__text">
                       ALLOW A.I. <br /> TO SCAN YOUR FACE
                     </h3>
+
+                    {showAnalysis && (
+                    <div className="analysis__wrapper">
                     <div className="analysis__box">
                       <h3 className="analysis__text">
                         ALLOW A.I. TO ACCESS YOUR CAMERA
@@ -63,6 +72,8 @@ const handleFileChange = (event) => {
                       <h3 className="leave__text click">DENY</h3>
                       <Link to="/setting" className="stay__text click">ALLOW</Link>
                     </div>
+                  </div>
+                    )}
                   </div>
 
                   <div className="cam1__box--wrapper">
@@ -80,7 +91,7 @@ const handleFileChange = (event) => {
                       <img
                         src={gallery}
                         alt="Gallery"
-                      onClick={() => { console.log("Image clicked!"); // Check if this logs to the console
+                      onClick={() => { console.log("Image clicked!");
                         fileInputRef.current.click(); 
                     }}
                        style={{ cursor: "pointer" }}
@@ -94,7 +105,7 @@ const handleFileChange = (event) => {
                 </h3>
 
                 <div className="cam__cam--analysis">
-                  <div className="analysis__back click">
+                  <Link to="/location" className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}
@@ -102,8 +113,10 @@ const handleFileChange = (event) => {
                       />
                     </div>
                     <h3 className="back__text">BACK</h3>
-                  </div>
+                  </Link>
 
+
+                  {imageUploaded && (
                   <Link to="/preparing" className="analysis__front click">
                     <h3 className="front__text">PROCEED</h3>
                     <div className="analysis__front--box">
@@ -113,6 +126,7 @@ const handleFileChange = (event) => {
                       />
                     </div>
                   </Link>
+                  )}
                 </div>
               </div>
             </div>

@@ -771,6 +771,7 @@ flex-direction: column;
   font-size: 13px;
   font-weight: 300;
   color: white;
+  text-decoration: none;
 }
 
 .leave__text:hover,
@@ -1111,6 +1112,7 @@ margin-top: 10vh;
 .picture__back {
   display: flex;
   gap: 30px;
+  text-decoration: none;
 }
 
 .picture__back--box {
