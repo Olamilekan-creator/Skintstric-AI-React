@@ -494,6 +494,8 @@ flex-direction: column;
 .analysis__back {
   display: flex;
   gap: 30px;
+  text-decoration: none;
+  color: black;
 }
 
 .analysis__box--wrapper {
@@ -1364,7 +1366,9 @@ margin-top: 10vh;
   flex-direction: column;
 }
 
-.east__box1 {
+.east__box1, 
+.east__box2, 
+.east__box3 {
   border: none;
   border-top: 1px solid black;
   width: 208px;
@@ -1377,7 +1381,9 @@ margin-top: 10vh;
   padding: 0 20px;
 }
 
-.east__box1:hover {
+.east__box1:hover,
+.east__box2:hover,
+.east__box3:hover {
   background-color: #e1e1e2;
   transition: 0.3s ease;
   cursor: pointer;
@@ -1502,7 +1508,9 @@ margin-top: 10vh;
     padding-top: 3%;
   }
 
-  .east__box1 {
+  .east__box1,
+  .east__box2,
+  .east__box3 {
     width: calc(920px / 3);
     height: 120px;
     line-height: 3;
@@ -1585,7 +1593,9 @@ margin-top: 10vh;
     margin: 0 auto;
   }
 
-  .east__box1 {
+  .east__box1,
+  .east__box2,
+  .east__box3 {
     width: calc(680px / 3);
     height: 70px;
     line-height: 2;

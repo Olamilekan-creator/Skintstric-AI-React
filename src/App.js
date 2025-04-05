@@ -5,6 +5,9 @@ import Index from "./component/Index";
 import Introduce from "./component/Introduce";
 import Location from "./component/Location";
 import Camera from "./component/Camera";
+import Preparing from "./component/Preparing";
+import Demographics from "./component/Demographics";
+import Estimation from "./component/Estimation";
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
    <Route path="/introduce" element={<Introduce />} />
    <Route path="/location" element={<Location />} />
    <Route path="/camera" element={<Camera />} />
+   <Route path="/preparing" element={<Preparing />} />
+   <Route path="/estimation" element={<Estimation />} />
+   <Route path="/demographics" element={<Demographics />} />
     </Routes>
     </div>
     </Router>
