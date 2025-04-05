@@ -158,7 +158,7 @@ const Demographics = () => {
                     </h4>
                     <div className="percent__box">
                       <div className="percentage__circle">
-                        <h4 className="percent">{percentage}</h4>
+                    <h4 className="percent">{percentage}</h4>
                       </div>
                     </div>
                   </div>

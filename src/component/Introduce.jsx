@@ -69,7 +69,7 @@ const Introduce = () => {
                 </div>
 
                 <div className="analysis">
-                  <div className="analysis__back click">
+                  <Link to="/" className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}
@@ -77,7 +77,7 @@ const Introduce = () => {
                       />
                     </div>
                     <h3 className="back__text">BACK</h3>
-                  </div>
+                  </Link>
 
                   {inputText && (
                     <Link to="/location" className="analysis__front click">

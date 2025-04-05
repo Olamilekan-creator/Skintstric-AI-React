@@ -59,7 +59,7 @@ const Face = () => {
                             <div className="nav__row">
                                 <div className="nav__landing">
                                     <div className="title">
-                                        <a href="#" className="head__text">SKINSTRIC</a>
+                                        <Link to="/" className="head__text">SKINSTRIC</Link>
                                         <h4 className="head__tiny--text">[ ANALYSIS ]</h4>
                                     </div>
                                 </div>

@@ -132,15 +132,14 @@ const Estimation = () => {
                     <h3 className="back__text">BACK</h3>
                   </Link>
 
-                  <Link to="/demographics" className="analysis__front click">
-                    <h3 className="front__text">GET SUMMARY</h3>
-                    <div className="analysis__front--box">
-                      <FontAwesomeIcon
-                        icon={faCaretRight}
-                        className="front__back"
-                      />
-                    </div>
-                  </Link>
+                  {selectedBox && (
+             <Link to="/demographics" className="analysis__front click">
+                      <h3 className="front__text">GET SUMMARY</h3>
+                      <div className="analysis__front--box">
+                        <FontAwesomeIcon icon={faCaretRight} className="front__back" />
+                      </div>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
