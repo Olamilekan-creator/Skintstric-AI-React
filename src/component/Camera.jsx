@@ -61,7 +61,7 @@ const handleFileChange = (event) => {
                     </div>
                     <div className="leave__stay">
                       <h3 className="leave__text click">DENY</h3>
-                      <h3 className="stay__text click">ALLOW</h3>
+                      <Link to="/setting" className="stay__text click">ALLOW</Link>
                     </div>
                   </div>
 

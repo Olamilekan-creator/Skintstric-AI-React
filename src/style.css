@@ -907,38 +907,45 @@ color: #808080;
 }
 
 .set__text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .set__text--subtitle1 {
-  display: flex;
+display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: center;
+  font-size: 14px;
+  font-weight: 300;
+  width: 100%;
 }
 
 .set__text--text {
-  display: flex;
-  gap: 30px;
-  margin: 20px 0;
-  padding: 0 50px;
+ display: flex;
+ max-width: 500px;
+ width: 100%;
+ margin: 0 auto;
+ gap: 30px;
 }
 
 .fa-diamond {
-  font-size: small;
+  font-size: 10px;
 }
 
 .subtitle__text1 {
   font-size: 12px;
   font-weight: 400;
-  max-width: 500px;
-  width: 100%;
-  margin: 0;
 }
 
 .set__text--title {
   font-size: 12px;
   font-weight: 400;
-  padding: 0 180px;
+  margin-bottom: 20px;
 }
 
 .set__up {
@@ -949,29 +956,25 @@ color: #808080;
 
 .set__box--wrapper {
   display: flex;
-  margin-top: 25%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
 .set__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  max-width: 1400px;
-  margin: 0 auto;
+ position: relative;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 8%;
+ padding-top: 20%;
 }
 
 /* Tablet, smartphones, small smartphones */
 @media (max-width: 1024px) {
-  .set__box--wrapper {
-    padding-top: 10%;
-  }
-  .set__text {
-    width: 100%;
-    max-width: 650px;
-    margin: 0 auto;
+  .set__container {
+    padding-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -981,8 +984,6 @@ color: #808080;
   width: 100%;
   border: 2px solid black;
   height: 100vh;
-  background-color: #cdcecc;
-  backdrop-filter: blur(20px);
   overflow: hidden;
   margin: 0 auto;
 }
@@ -1026,7 +1027,7 @@ color: #808080;
 }
 
 .ellipse {
-  position: relative;
+  position: absolute;
   border: 1px solid white;
   width: 499px;
   height: 616px;
@@ -1155,11 +1156,15 @@ margin-top: 10vh;
 }
 
 .option__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-size: 14px;
   font-weight: 400;
   color: #fcfcfc;
-  max-width: 800px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .option__subtitle--wrapper {

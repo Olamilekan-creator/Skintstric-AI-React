@@ -8,6 +8,8 @@ import Camera from "./component/Camera";
 import Preparing from "./component/Preparing";
 import Demographics from "./component/Demographics";
 import Estimation from "./component/Estimation";
+import Setting from "./component/Setting";
+import Face from "./component/Face";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
    <Route path="/preparing" element={<Preparing />} />
    <Route path="/estimation" element={<Estimation />} />
    <Route path="/demographics" element={<Demographics />} />
+   <Route path="/setting" element={<Setting />} />
+   <Route path="/face" element={<Face />} />
     </Routes>
     </div>
     </Router>
