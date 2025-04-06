@@ -28,6 +28,7 @@ const handleFileChange = (event) => {
           };
 
 const handleShutterClick = () => {
+    console.log("Shutter clicked!");
     setShowAnalysis(true);
 };
 
@@ -72,8 +73,8 @@ useEffect(() => {
                     <div className="cam__box1"></div>
                     <div className="cam__box2"></div>
                     <div className="cam__box3"></div>
-                    <div className="camera" onClick={handleShutterClick}>
-                      <img src={shutterIcon} alt="" className="shutter" />
+                    <div className="camera">
+                      <img src={shutterIcon} alt="" className="shutter" onClick={handleShutterClick} />
                     </div>
                   </div>
 
