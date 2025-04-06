@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Location = () => {
   const [inputText, setInputText] = useState("");
@@ -33,6 +35,19 @@ const Location = () => {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init();
+  }, []);
+
+  document.addEventListener('aos:in', ({ detail }) => {
+    console.log('animated in', detail);
+  });
+  
+  document.addEventListener('aos:out', ({ detail }) => {
+    console.log('animated out', detail);
+  });
+
   return (
     <section id="landing">
       <div className="container">
@@ -56,7 +71,7 @@ const Location = () => {
             <div className="webpage__container">
               <div className="webpage__row">
                 <h3 className="web__text">TO START ANALYSIS</h3>
-                <div className="web__box--wrapper">
+                <div className="web__box--wrapper" data-aos="fade-up" data-aos-delay="700">
                   <div className="web__box1"></div>
                   <div className="web__box2"></div>
                   <div className="web__box3"></div>
@@ -74,7 +89,7 @@ const Location = () => {
                 </div>
 
                 <div className="analysis">
-                  <div className="analysis__back click">
+                  <div className="analysis__back click" data-aos="fade-right" data-aos-delay="500">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}
@@ -85,7 +100,7 @@ const Location = () => {
                   </div>
 
                   {inputText && (
-                    <Link to ="/camera" className="analysis__front click">
+                    <Link to ="/camera" className="analysis__front click" data-aos="fade-left" data-aos-delay="500">
                       <h3 className="front__text">PROCEED</h3>
                       <div className="analysis__front--box">
                         <FontAwesomeIcon

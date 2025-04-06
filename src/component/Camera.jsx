@@ -1,9 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import gallery from "../assets/gallery (1).png";
 import shutterIcon from "../assets/shutter-icon.png";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Camera = () => {
 const fileInputRef =useRef(null);
@@ -22,6 +24,19 @@ const handleFileChange = (event) => {
 const handleShutterClick = () => {
     setShowAnalysis(true);
 };
+
+useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init();
+  }, []);
+
+  document.addEventListener('aos:in', ({ detail }) => {
+    console.log('animated in', detail);
+  });
+  
+  document.addEventListener('aos:out', ({ detail }) => {
+    console.log('animated out', detail);
+  });
 
   return (
     <section id="landing">
@@ -47,7 +62,7 @@ const handleShutterClick = () => {
               <div className="webpage__row">
                 <h3 className="web__text">TO START ANALYSIS</h3>
                 <div className="cam__container">
-                  <div className="cam__box--wrapper">
+                  <div className="cam__box--wrapper" data-aos="fade-down" data-aos-delay="700">
                     <div className="cam__box1"></div>
                     <div className="cam__box2"></div>
                     <div className="cam__box3"></div>
@@ -76,7 +91,7 @@ const handleShutterClick = () => {
                     )}
                   </div>
 
-                  <div className="cam1__box--wrapper">
+                  <div className="cam1__box--wrapper" data-aos="fade-up" data-aos-delay="700">
                     <div className="cam1__box1"></div>
                     <div className="cam1__box2"></div>
                     <div className="cam1__box3"></div>

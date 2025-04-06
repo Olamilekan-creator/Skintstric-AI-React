@@ -3,11 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiamond, faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import takePicture from '../assets/image 225 (Traced).png';
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Face = () => {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const [imageCaptured, setImageCaptured] = useState(false);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false); 
 
     useEffect(() => {
         const startCamera = async () => {
@@ -21,20 +24,30 @@ const Face = () => {
         const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
-        // Ensure video dimensions are available
         if (videoRef.current.videoWidth > 0 && videoRef.current.videoHeight > 0) {
-            // Set canvas dimensions to match the video dimensions
             canvas.width = videoRef.current.videoWidth;
             canvas.height = videoRef.current.videoHeight;
-
-            // Draw the image
             context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
             setImageCaptured(true);
+            setIsButtonDisabled(true);
+            console.log("Image captured successfully!");
         } else {
             console.error("Video dimensions are not available yet!");
         }
     };
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        AOS.init();
+      }, []);
+    
+      document.addEventListener('aos:in', ({ detail }) => {
+        console.log('animated in', detail);
+      });
+      
+      document.addEventListener('aos:out', ({ detail }) => {
+        console.log('animated out', detail);
+      });
 
     return (
         <section id="face" style={{ position: 'relative', height: '100vh' }}>
@@ -72,42 +85,45 @@ const Face = () => {
                     <div className="picture">
                         <h4 className="picture__text">TAKE PICTURE</h4>
                         <div className="picture__container">
-                            <div className="picture__icon--icon" onClick={captureImage}>
+                            <div className="picture__icon--icon" onClick={captureImage} disabled={isButtonDisabled}>
                                 <img src={takePicture} alt="" className="picture__icon" />
                             </div>
                         </div>
                     </div>
 
                     <div className="picture__analysis">
-                        <Link to="/camera" className="picture__back click">
+                        <Link to="/camera" className="picture__back click" data-aos="fade-left" data-aos-delay="1500">
                             <div className="picture__back--box">
                                 <FontAwesomeIcon icon={faCaretLeft} className="picture__back--back" />
                             </div>
                             <h3 className="picture__back--text">BACK</h3>
                         </Link>
                         <div className="option__container">
-                            <h4 className="option__title">TO GET BETTER RESULTS MAKE SURE TO HAVE</h4>
+                            <h4 className="option__title" data-aos="fade-up" data-aos-delay="700">TO GET BETTER RESULTS MAKE SURE TO HAVE</h4>
                             <div className="option__subtitle--wrapper">
-                                <div className="option__subtitle--icon">
+                                <div className="option__subtitle--icon" data-aos="fade-left" data-aos-delay="900">
                                     <FontAwesomeIcon icon={faDiamond} className="diamond__icon" />
                                     <h4 className="option__subtitle--text">NEUTRAL EXPRESSION</h4>
                                 </div>
-                                <div className="option__subtitle--icon">
+                                <div className="option__subtitle--icon" data-aos="fade-left" data-aos-delay="1100">
                                     <FontAwesomeIcon icon={faDiamond} className="diamond__icon" />
                                     <h4 className="option__subtitle--text">FRONTAL POSE</h4>
                                 </div>
-                                <div className="option__subtitle--icon">
+                                <div className="option__subtitle--icon" data-aos="fade-left" data-aos-delay="1300">
                                     <FontAwesomeIcon icon={faDiamond} className="diamond__icon" />
                                     <h4 className="option__subtitle--text">ADEQUATE LIGHTING</h4>
                                 </div>
                             </div>
                         </div>
+
+                        {imageCaptured && (
                         <Link to="/estimation" className="picture__front--text click">
                             <h3 className="picture__front">PROCEED</h3>
                             <div className="picture__front--box">
                                 <FontAwesomeIcon icon={faCaretRight} className="picture__front--back" />
                             </div>
                         </Link>
+                        )}
                     </div>
                 </div>
             </div>

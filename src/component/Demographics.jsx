@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretLeft,
@@ -6,6 +6,8 @@ import {
   faDiamond,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Demographics = () => {
   const [percentage, setPercentage] = useState("0%");
@@ -28,7 +30,11 @@ const Demographics = () => {
   };
 
   const boxStyle = (isClicked) => {
-    return isClicked ? { backgroundColor: "black", color: "white" } : {};
+    return {
+        backgroundColor: isClicked ? "black" : "transparent",
+        color: isClicked ? "white" : "black",
+         transition: "background-color 0.3s ease, color 0.3s ease"
+    };
   };
 
   const handleBoxClick1 = () => {
@@ -73,6 +79,19 @@ const Demographics = () => {
     { ages: "60-69", confidence: "0%" },
     { ages: "70+", confidence: "0%" },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init();
+  }, []);
+
+  document.addEventListener('aos:in', ({ detail }) => {
+    console.log('animated in', detail);
+  });
+  
+  document.addEventListener('aos:out', ({ detail }) => {
+    console.log('animated out', detail);
+  });
 
   return (
     <section id="demographics">
@@ -123,7 +142,7 @@ const Demographics = () => {
                 <div className="demographics__wrapper">
                   <div className="east__container">
                     <div
-                      className="east__box1"
+                      className="east__box1" data-aos="fade-left" data-aos-delay="250"
                       style={boxStyle(clickedBox1)}
                       onClick={handleBoxClick1}
                     >
@@ -133,7 +152,7 @@ const Demographics = () => {
                       <h4 className="east__text--h4">RACE</h4>
                     </div>
                     <div
-                      className="east__box2"
+                      className="east__box2" data-aos="fade-left" data-aos-delay="400"
                       style={boxStyle(clickedBox2)}
                       onClick={handleBoxClick2}
                     >
@@ -143,7 +162,7 @@ const Demographics = () => {
                       <h4 className="east__text--h4">AGE</h4>
                     </div>
                     <div
-                      className="east__box3"
+                      className="east__box3" data-aos="fade-left" data-aos-delay="550"
                       style={boxStyle(clickedBox3)}
                       onClick={handleBoxClick3}
                     >
@@ -152,7 +171,7 @@ const Demographics = () => {
                     </div>
                   </div>
 
-                  <div className="percentage__box">
+                  <div className="percentage__box" data-aos="fade-up" data-aos-delay="700">
                     <h4 className="percentage__h4">
                       {selectedEthnicity || selectedAge}
                     </h4>
@@ -163,7 +182,7 @@ const Demographics = () => {
                     </div>
                   </div>
 
-                  <div className="race__container">
+                  <div className="race__container" data-aos="fade-up" data-aos-delay="900">
                     <div className="race__text">
                       <h4 className="race__text--text">RACE</h4>
                       <h4 className="race__text--text">A.I. CONFIDENCE</h4>

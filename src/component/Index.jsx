@@ -42,7 +42,7 @@ const Index = () => {
           <div className="header">
             <div className="header__container">
                   <div className="arrows">
-                    <div className="left__page1--wrapper">
+                    <div className="left__page1--wrapper" data-aos="fade-right" data-aos-delay="400">
                       <div className="left__box1"></div>
                       <div className="left__box2"></div>
                       <div className="left__box3">
@@ -60,7 +60,7 @@ const Index = () => {
                       </div>
                   </div>
 
-                    <div className="page1__wrapper">
+                    <div className="page1__wrapper" data-aos="fade-left" data-aos-delay="400">
                       <div className="box1"></div>
                       <div className="box2"></div>
                       <div className="box3"
@@ -78,7 +78,7 @@ const Index = () => {
                       </div>
                       </div>
                       </div>
-                      <h1 className="landing__title">
+                      <h1 className="landing__title" data-aos="fade-up" data-aos-delay="400">
                     Sophisticated skincare
                   </h1>
                   </div>

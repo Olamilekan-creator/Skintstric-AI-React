@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate} from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Preparing = () => {
     const navigate = useNavigate();
@@ -11,6 +13,19 @@ const Preparing = () => {
         return () => clearTimeout(timer);
     }, [navigate]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        AOS.init();
+      }, []);
+    
+      document.addEventListener('aos:in', ({ detail }) => {
+        console.log('animated in', detail);
+      });
+      
+      document.addEventListener('aos:out', ({ detail }) => {
+        console.log('animated out', detail);
+      });
+
     return (
         <section id="preparing">
         <div className="container">
@@ -20,7 +35,7 @@ const Preparing = () => {
                 <div className="webpage__row">
                   <div className="set__container">
   
-                  <div className="set__box--wrapper">
+                  <div className="set__box--wrapper" data-aos="fade-up" data-aos-delay="700">
                     <div className="set__box1"></div>
                     <div className="set__box2"></div>
                     <div className="set__box3"></div>

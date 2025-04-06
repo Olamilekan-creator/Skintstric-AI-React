@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Estimation = () => {
   const [selectedBox, setSelectedBox] = useState(null);
@@ -9,6 +11,19 @@ const Estimation = () => {
   const handleBoxClick = (boxId) => {
     setSelectedBox(boxId);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    AOS.init();
+  }, []);
+
+  document.addEventListener('aos:in', ({ detail }) => {
+    console.log('animated in', detail);
+  });
+  
+  document.addEventListener('aos:out', ({ detail }) => {
+    console.log('animated out', detail);
+  });
 
   return (
     <section id="estimation">
@@ -37,7 +52,7 @@ const Estimation = () => {
                   A.I HAS ESTIMATED THE FOLLOWING. <br />
                   FIX ESTIMATED INFORMATION IF NEEDED.
                 </h4>
-                <div className="prepare__box--wrapper">
+                <div className="prepare__box--wrapper" data-aos="fade-up" data-aos-delay="600">
                   <div className="web__box1"></div>
                   <div className="web__box2"></div>
                   <div className="web__box3"></div>
@@ -45,7 +60,7 @@ const Estimation = () => {
                   <div className="four__wrapper">
                     <div className="four__box--container">
                       <div
-                        className="four__box"
+                        className="four__box" data-aos="fade-down" data-aos-delay="800"
                         onClick={() => handleBoxClick(1)}
                         style={{
                           backgroundColor:
@@ -63,7 +78,7 @@ const Estimation = () => {
                       </div>
 
                       <div
-                        className="four__box"
+                        className="four__box" data-aos="fade-right" data-aos-delay="800"
                         onClick={() => handleBoxClick(2)}
                         style={{
                           backgroundColor:
@@ -83,7 +98,7 @@ const Estimation = () => {
 
                     <div className="four__box--container2">
                       <div
-                        className="four__box"
+                        className="four__box" data-aos="fade-left" data-aos-delay="800"
                         onClick={() => handleBoxClick(3)}
                         style={{
                           backgroundColor:
@@ -101,7 +116,7 @@ const Estimation = () => {
                       </div>
 
                       <div
-                        className="four__box"
+                        className="four__box" data-aos="fade-up" data-aos-delay="800"
                         onClick={() => handleBoxClick(4)}
                         style={{
                           backgroundColor:
