@@ -11,15 +11,21 @@ const Camera = () => {
 const fileInputRef =useRef(null);
 const [showAnalysis, setShowAnalysis] = useState(false);
 const [imageUploaded, setImageUploaded] = useState(false);
+const [previewImage, setPreviewImage] = useState("");
 
 const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-        console.log("File selected:", file);
-    } else {
-        console.log("No file selected.");
-    }
-};
+        const reader = new FileReader();
+        reader.onloadend = () => {
+                const base64String = reader.result;
+                setPreviewImage(base64String);
+                localStorage.setItem("capturedImage", base64String);
+                setImageUploaded(true);
+              };
+              reader.readAsDataURL(file);
+            }
+          };
 
 const handleShutterClick = () => {
     setShowAnalysis(true);
@@ -96,7 +102,7 @@ useEffect(() => {
                     <div className="cam1__box2"></div>
                     <div className="cam1__box3"></div>
                     <div className="camera1">
-                        <input 
+                    <input 
                           type="file"
                             accept="image/*"
                             ref={fileInputRef}
@@ -106,7 +112,7 @@ useEffect(() => {
                       <img
                         src={gallery}
                         alt="Gallery"
-                      onClick={() => { console.log("Image clicked!");
+                      onClick={() => {
                         fileInputRef.current.click(); 
                     }}
                        style={{ cursor: "pointer" }}
@@ -120,7 +126,7 @@ useEffect(() => {
                 </h3>
 
                 <div className="cam__cam--analysis">
-                  <Link to="/location" className="analysis__back click">
+                  <Link to="/" className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}

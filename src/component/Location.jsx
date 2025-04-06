@@ -89,7 +89,7 @@ const Location = () => {
                 </div>
 
                 <div className="analysis">
-                  <div className="analysis__back click" data-aos="fade-right" data-aos-delay="500">
+                  <div className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}
@@ -100,7 +100,7 @@ const Location = () => {
                   </div>
 
                   {inputText && (
-                    <Link to ="/camera" className="analysis__front click" data-aos="fade-left" data-aos-delay="500">
+                    <Link to ="/camera" className="analysis__front click">
                       <h3 className="front__text">PROCEED</h3>
                       <div className="analysis__front--box">
                         <FontAwesomeIcon

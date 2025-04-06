@@ -84,7 +84,7 @@ const Introduce = () => {
                 </div>
 
                 <div className="analysis">
-                  <Link to="/" className="analysis__back click" data-aos="fade-right" data-aos-delay="600">
+                  <Link to="/" className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}
@@ -95,7 +95,7 @@ const Introduce = () => {
                   </Link>
 
                   {inputText && (
-                    <Link to="/location" className="analysis__front click" data-aos="fade-left" data-aos-delay="600">
+                    <Link to="/location" className="analysis__front click">
                       <h3 className="front__text">PROCEED</h3>
                       <div className="analysis__front--box">
                         <FontAwesomeIcon
