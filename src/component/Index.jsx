@@ -6,7 +6,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Index = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHoveredLeft, setIsHoveredLeft] = useState(false);
+  const [isHoveredRight, setIsHoveredRight] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,15 +46,17 @@ const Index = () => {
                     <div className="left__page1--wrapper" data-aos="fade-right" data-aos-delay="400">
                       <div className="left__box1"></div>
                       <div className="left__box2"></div>
-                      <div className="left__box3">
+                      <div className="left__box3"
+                        onMouseEnter={() => setIsHoveredRight(true)}
+                        onMouseLeave={() => setIsHoveredRight(false)}
+                      
+                      >
                       <div className="backward">
                           <div className="arrow1 click">
-                              <div className="right__small--box1" id="outerBox">
-                              <div className="right__small--box2" id="innerBox">
+                              <div className="right__small--box1" id="outerBox"></div>  
+                              <div className="right__small--box2" id="innerBox"></div>  
                               <FontAwesomeIcon icon={faCaretLeft} className="back__icon" />
                             </div>
-                          </div>  
-                          </div>  
                           <h3 className="forward__text">DISCOVER A.I</h3>
                       </div>
                       </div>
@@ -64,21 +67,21 @@ const Index = () => {
                       <div className="box1"></div>
                       <div className="box2"></div>
                       <div className="box3"
-                      onMouseEnter={() => setIsHovered(true)}
-                      onMouseLeave={() => setIsHovered(false)}
+                      onMouseEnter={() => setIsHoveredLeft(true)}
+                      onMouseLeave={() => setIsHoveredLeft(false)}
 
                       >
                       <div className="forward">
                           <h3 className="forward__text">TAKE TEST</h3>
                           <Link to="/introduce" className="arrow click">
-                              <div className="small__box1" id="outerBox"></div>
-                              <div className="small__box2" id="innerBox"></div>
+                              <div className="small__box1"></div>
+                              <div className={`small__box2 ${isHoveredLeft ? 'show' : ''}`}></div>
                               <FontAwesomeIcon icon={faCaretRight} className="forward__arrow" />
                           </Link>  
                       </div>
                       </div>
                       </div>
-                      <h1 className="landing__title" data-aos="fade-up" data-aos-delay="400">
+                      <h1 className={`landing__title ${isHoveredLeft ? 'move-left' : isHoveredRight ? 'move-right' : ''}`}>
                     Sophisticated skincare
                   </h1>
                   </div>

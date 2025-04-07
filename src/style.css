@@ -87,10 +87,14 @@
   margin: 0 auto;
   max-width: 500px;
   transition: transform 0.3s ease;
+  transform: translateY(0) translateX(0);
 }
 
-.box3:hover ~ .landing__title {
-  transform: translateX(-20px);
+.move-left {
+  transform: translateY(0) translateX(-115%);
+}
+.move-right {
+  transform: translateY(0) translateX(110%);
 }
 
 .para {
@@ -193,44 +197,54 @@ padding-left: 20px;
   position: absolute;
 }
 
-.box3:hover ~ .landing__title {
-  transform: translateX(-20px);
-  transition: transform 0.3s ease;
-}
-
 .forward {
   position: absolute;
   display: flex;
   gap: 20px;
   align-items: center;
   transform: rotate(45deg);
-  left: 4%;
-  top: 19%;
+  top: 23%;
+  padding-left: 19%;
 }
 
 .small__box1 {
   border: 2px solid #242424;
-  width: 60px;
-  height: 60px;
-  bottom: -20px;
+width: 40px;
+height: 40px;
+  bottom: -10px;
   position: absolute;
   transform: rotate(-45deg);
-  transition: background-color 0.3s ease;
+  transition: 0.4s ease;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.small__box1:hover {
+  transform: rotate(-45deg) scale(1.3);
 }
 
 .small__box2 {
   border: 2px dotted #242424;
-  width: 46px;
-  height: 46px;
+  width: 39px;
+  height: 39px;
   position: absolute;
   transform: rotate(-45deg);
-  top: -10px;
-  margin: -4px 8px;
-  transition: transform 0.3s ease;
+  margin: -11px 1px;
+  opacity: 1;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 2;
+  visibility: visible;
+}
+
+.small__box1:hover +
+ .small__box2 {
+  opacity: 1;
+  visibility: visible;
 }
 
 .forward__arrow {
-  margin: 0 25px;
+  margin: 0 18px;
+  color: black;
 }
 
 .forward__text {
@@ -249,11 +263,6 @@ padding-left: 20px;
   justify-content: center;
   transition: opacity 0.3s ease;
   opacity: 1;
-}
-
-.box3:hover ~ .left__page1--wrapper {
-  opacity: 0;
-  pointer-events: none;
 }
 
 .left__box1 {
@@ -282,11 +291,19 @@ padding-left: 20px;
   width: 420px;
   transform: rotate(45deg);
   position: absolute;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.left__box3:hover ~ .landing__title {
-  transform: translateX(50px);
-  transition: transform 0.3s ease;
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.fade-in {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
 }
 
 .left__page1--wrapper:hover .left__box1,
@@ -299,36 +316,48 @@ padding-left: 20px;
   display: flex;
   gap: 20px;
   align-items: center;
-  transform: rotate(45deg);
-  top: 10%;
+  top: 23%;
   transform: rotate(-45deg);
+  padding-right: 18%;
 }
 
 .right__small--box1 {
   border: 2px solid #242424;
-  width: 60px;
-  height: 60px;
-  bottom: -20px;
+width: 40px;
+height: 40px;
+  bottom: -10px;
   position: absolute;
-  transform: rotate(-45deg);
-  transition: background-color 0.3s ease;
+  transform: rotate(45deg);
+  transition: 0.4s ease;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.right__small--box1:hover {
+  transform: rotate(45deg) scale(1.3);
+  z-index: 2;
 }
 
 .right__small--box2 {
   border: 2px dotted #242424;
-  width: 46px;
-  height: 46px;
+  width: 38px;
+  height: 38px;
   position: absolute;
-  top: -14px;
-  margin: 19px 5px;
-  transition: transform 0.6s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transform: rotate(45deg);
+  margin: -12px 1px;
+  opacity: 1;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 2;
+  visibility: visible;
+}
+
+.right__small--box1:hover .right__small--box2 {
+  opacity: 2;
 }
 
 .back__icon {
-  transform: rotate(45deg);
+  margin: 0 16px;
+  color: black;
 }
 
 .arrow1 {
@@ -598,8 +627,8 @@ padding-left: 20px;
   align-items: flex-start;
   max-width: 1000px;
   margin: 0 auto;
-  position: relative;
   margin-top: 10vh;
+  padding-bottom: 7%;
 }
 
 .cam__box--wrapper,
@@ -608,6 +637,7 @@ padding-left: 20px;
   margin-top: 25%;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .cam__box1 ,
@@ -678,12 +708,22 @@ padding-left: 20px;
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  position: absolute;
+  transform: scale(0.9);
 }
 
+.camera:hover,
+.camera1:hover,
+.gallery:hover,
+.shutter:hover {
+  transform: scale(0.9);
+}
 
 .gallery,
 .shutter {
   padding: 7px 7px;
+  transition: 0.3s ease;
+  position: absolute;
 }
 
 .cam__cam--analysis {
@@ -701,7 +741,6 @@ padding-left: 20px;
 }
 
 .allow__text {
-  margin-bottom: 35px;
   font-size: 11px;
   font-weight: 300;
 }
@@ -752,6 +791,7 @@ color: #808080;
     width: 100%;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
     margin: 0;
   }
 
@@ -763,6 +803,7 @@ color: #808080;
   .cam1__box--wrapper {
     flex-direction: column;
     margin-top: 40%;
+    padding-top: 20%;
   }
 
   .webpage__row {
@@ -772,10 +813,14 @@ color: #808080;
   }
   .cam__back,
   .cam__cam--analysis {
-    margin-top: 32%;
+    margin-top: 25%;
   }
   .text__cam {
     padding-top: 0%;
+  }
+
+  .move-left {
+    transform: translateY(0) translateX(-70%);
   }
 }
 
@@ -799,6 +844,9 @@ color: #808080;
   }
   .cam__cam--analysis {
     margin-top: 15%;
+  }
+  .move-left {
+    transform: translateY(0) translateX(-130%);
   }
 }
 
@@ -831,6 +879,9 @@ color: #808080;
   .cam1__box3 {
     width: 210px;
     height: 210px;
+  }
+  .move-left {
+    transform: translateY(0) translateX(-50%);
   }
 }
 
@@ -1042,11 +1093,13 @@ margin-top: 10vh;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  position: relative;
 }
 
 .picture__icon {
   margin: 10px 10px;
   width: 25px;
+  position: absolute;
 }
 
 .picture__icon--icon {
@@ -1056,6 +1109,7 @@ margin-top: 10vh;
   border-radius: 50%;
   margin: 1px 1px;
   background-color: #fcfcfc;
+  position: absolute;
 }
 
 .count,
@@ -1416,6 +1470,7 @@ margin-top: 10vh;
   align-items: center;
   border: 5px solid #c1c2c3;
 }
+
 
 .percent {
   font-size: 35px;

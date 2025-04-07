@@ -18,15 +18,29 @@ const Demographics = () => {
   const [clickedBox1, setClickedBox1] = useState(false);
   const [clickedBox2, setClickedBox2] = useState(false);
   const [clickedBox3, setClickedBox3] = useState(false);
+  const [selectedEthnicityIndex, setSelectedEthnicityIndex] = useState(null);
+const [selectedAgeIndex, setSelectedAgeIndex] = useState(null);
+const [loading, setLoading] = useState(false);
 
-  const handleBoxClick = (boxId) => {
-    setPercentage(ethnicities[boxId]?.confidence || "0%");
-    setSelectedEthnicity(ethnicities[boxId]?.name || "");
+
+  const handleBoxClick = (index) => {
+    setLoading(true);
+    setTimeout(() => {
+      setPercentage(ethnicities[index]?.confidence || "0%");
+      setSelectedEthnicity(ethnicities[index]?.name || "");
+      setSelectedEthnicityIndex(index);
+      setLoading(false);
+    }, 500);
   };
 
   const handleAgeClick = (index) => {
+    setLoading(true);
+    setTimeout(() => {
     setPercentage(age[index]?.confidence || "0%");
     setSelectedAge(age[index]?.ages || "");
+    setSelectedAgeIndex(index);
+    setLoading(false);
+    }, 500);
   };
 
   const boxStyle = (isClicked) => {
@@ -93,6 +107,19 @@ const Demographics = () => {
     console.log('animated out', detail);
   });
 
+  const handleReset = () => {
+    setPercentage("0%");
+    setSelectedEthnicity("");
+    setSelectedAge("");
+    setShowEthnicities(false);
+    setShowAges(false);
+    setClickedBox1(false);
+    setClickedBox2(false);
+    setClickedBox3(false);
+    setSelectedEthnicityIndex(null);
+    setSelectedAgeIndex(null);
+  };
+
   return (
     <section id="demographics">
       <div className="container">
@@ -142,7 +169,7 @@ const Demographics = () => {
                 <div className="demographics__wrapper">
                   <div className="east__container">
                     <div
-                      className="east__box1" data-aos="fade-left" data-aos-delay="250"
+                      className="east__box1"
                       style={boxStyle(clickedBox1)}
                       onClick={handleBoxClick1}
                     >
@@ -152,7 +179,7 @@ const Demographics = () => {
                       <h4 className="east__text--h4">RACE</h4>
                     </div>
                     <div
-                      className="east__box2" data-aos="fade-left" data-aos-delay="400"
+                      className="east__box2"
                       style={boxStyle(clickedBox2)}
                       onClick={handleBoxClick2}
                     >
@@ -162,7 +189,7 @@ const Demographics = () => {
                       <h4 className="east__text--h4">AGE</h4>
                     </div>
                     <div
-                      className="east__box3" data-aos="fade-left" data-aos-delay="550"
+                      className="east__box3"
                       style={boxStyle(clickedBox3)}
                       onClick={handleBoxClick3}
                     >
@@ -176,7 +203,10 @@ const Demographics = () => {
                       {selectedEthnicity || selectedAge}
                     </h4>
                     <div className="percent__box">
-                      <div className="percentage__circle">
+                      <div className={`percentage__circle ${loading ? "animated" : ""}`}
+                        style={{
+                          "--percentage": percentage,
+                        }}>
                     <h4 className="percent">{percentage}</h4>
                       </div>
                     </div>
@@ -187,6 +217,7 @@ const Demographics = () => {
                       <h4 className="race__text--text">RACE</h4>
                       <h4 className="race__text--text">A.I. CONFIDENCE</h4>
                     </div>
+
                     {showEthnicities && (
                       <>
                         {ethnicities.map((ethnicity, index) => (
@@ -194,7 +225,7 @@ const Demographics = () => {
                             className="east__asian"
                             key={ethnicity.name}
                             onClick={() => handleBoxClick(index)}
-                            style={boxStyle(index)}
+                            style={boxStyle(index === selectedEthnicityIndex)}
                           >
                             <div className="race__icon">
                               <FontAwesomeIcon
@@ -212,6 +243,7 @@ const Demographics = () => {
                         ))}
                       </>
                     )}
+
                     {showAges && (
                       <>
                         {age.map((ageGroup, index) => (
@@ -219,7 +251,7 @@ const Demographics = () => {
                             className="east__asian"
                             key={ageGroup.ages}
                             onClick={() => handleAgeClick(index)}
-                            style={boxStyle(index + age.length)}
+                            style={boxStyle(index === selectedAgeIndex)}
                           >
                             <div className="race__icon">
                               <FontAwesomeIcon
@@ -254,7 +286,7 @@ const Demographics = () => {
                     If A.I. estimate is wrong, select the correct one.
                   </h4>
                   <div className="prepare__btn">
-                    <button className="reset__btn">RESET</button>
+                    <button className="reset__btn" onClick={handleReset}>RESET</button>
                     <button className="confirm__btn">CONFIRM</button>
                   </div>
                 </div>

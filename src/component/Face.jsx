@@ -10,15 +10,24 @@ const Face = () => {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const [imageCaptured, setImageCaptured] = useState(false);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(false); 
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [stream, setStream] = useState(null); 
 
     useEffect(() => {
         const startCamera = async () => {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
             videoRef.current.srcObject = stream;
+            setStream(stream);
         };
         startCamera();
     }, []);
+
+    const stopCamera = () => {
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+            console.log("Camera stopped.");
+        }
+    }
 
     const captureImage = () => {
         const canvas = canvasRef.current;
@@ -28,6 +37,7 @@ const Face = () => {
             canvas.width = videoRef.current.videoWidth;
             canvas.height = videoRef.current.videoHeight;
             context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+            videoRef.current.pause();
             setImageCaptured(true);
             setIsButtonDisabled(true);
             console.log("Image captured successfully!");
@@ -117,7 +127,7 @@ const Face = () => {
                         </div>
 
                         {imageCaptured && (
-                        <Link to="/estimation" className="picture__front--text click">
+                        <Link to="/estimation" className="picture__front--text click" onClick={stopCamera}>
                             <h3 className="picture__front">PROCEED</h3>
                             <div className="picture__front--box">
                                 <FontAwesomeIcon icon={faCaretRight} className="picture__front--back" />

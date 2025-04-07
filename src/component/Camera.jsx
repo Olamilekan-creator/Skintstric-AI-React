@@ -12,6 +12,7 @@ const fileInputRef =useRef(null);
 const [showAnalysis, setShowAnalysis] = useState(false);
 const [imageUploaded, setImageUploaded] = useState(false);
 const [previewImage, setPreviewImage] = useState("");
+const [showLeaveStay, setShowLeaveStay] = useState(true);
 
 const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -30,6 +31,11 @@ const handleFileChange = (event) => {
 const handleShutterClick = () => {
     console.log("Shutter clicked!");
     setShowAnalysis(true);
+};
+
+const handleDenyClick = () => {
+  setShowLeaveStay(false);
+  setShowAnalysis(false);
 };
 
 useEffect(() => {
@@ -90,8 +96,10 @@ useEffect(() => {
                         ALLOW A.I. TO ACCESS YOUR CAMERA
                       </h3>
                     </div>
+
+                  
                     <div className="leave__stay">
-                      <h3 className="leave__text click">DENY</h3>
+                      <h3 className="leave__text click" onClick={handleDenyClick}>DENY</h3>
                       <Link to="/setting" className="stay__text click">ALLOW</Link>
                     </div>
                   </div>
