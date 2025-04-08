@@ -121,6 +121,9 @@ padding-left: 20px;
     max-width: 400px;
     margin-bottom: 30%;
   }
+  .move-right {
+    transform: translateY(0) translateX(70%);
+  }
 }
 
 @media (max-width: 768px) {
@@ -137,6 +140,9 @@ padding-left: 20px;
     margin: 0 auto;
     margin-bottom: 30%;
   }
+  .move-right {
+    transform: translateY(0) translateX(100%);
+  }
 }
 
 @media (max-width: 430px) {
@@ -147,10 +153,13 @@ padding-left: 20px;
   }
 
   .page1__wrapper {
-    left: -10;
+   left: 105%;
   }
-  .forward__text {
-  display: none;
+  .left__page1--wrapper {
+    right: 105%;
+  }
+  .move-right {
+    transform: translateY(0) translateX(60%);
   }
 }
 
@@ -736,13 +745,23 @@ height: 40px;
 
 .text__cam {
   position: absolute;
-  margin: 18% 0;
-  padding-left: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .allow__text {
   font-size: 11px;
   font-weight: 300;
+  padding-top: 7%;
+}
+
+.allow__text--text {
+  font-size: 11px;
+  font-weight: 300;
+ padding-left: 55%;
+ padding-top: 30%;
 }
 
 .analysis__box {
@@ -794,16 +813,16 @@ color: #808080;
     gap: 30px;
     margin: 0;
   }
-
+  .allow__text {
+   padding-left: 30%;
+  }
+  
+  .allow__text--text {
+   padding-right: 25%;
+  }
   .group {
     padding: 0;
     margin-top: 15%;
-  }
-
-  .cam1__box--wrapper {
-    flex-direction: column;
-    margin-top: 40%;
-    padding-top: 20%;
   }
 
   .webpage__row {
@@ -832,9 +851,8 @@ color: #808080;
   }
   .cam1__box--wrapper  {
     flex-direction: column;
-    margin-top: 45%;
   }
-
+  
   .group {
     padding-left: 60%;
     margin: 0;
@@ -852,7 +870,7 @@ color: #808080;
 
 @media (max-width: 430px) {
   .cam__container {
-    margin-top: 25px;
+    margin-top: 25%;
   }
   .group {
     padding-left: 55%;
@@ -865,7 +883,7 @@ color: #808080;
     padding-top: 20%;
   }
   .cam1__box--wrapper {
-    margin-top: 65%;
+    margin-top: 45%;
   }
 
   .cam1__box1 {
@@ -1430,12 +1448,18 @@ margin-top: 10vh;
   padding: 0 20px;
 }
 
-.east__box1:hover,
-.east__box2:hover,
+.east__box1:hover
+.east__box2:hover
 .east__box3:hover {
   background-color: #e1e1e2;
   transition: 0.3s ease;
   cursor: pointer;
+}
+
+.east__box1
+.east__box2
+.east__box3 .active {
+  color: #e1e1e2;
 }
 
 .percentage__box {

@@ -18,12 +18,32 @@ const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onloadend = () => {
+        reader.onloadend = async () => {
                 const base64String = reader.result;
                 setPreviewImage(base64String);
                 localStorage.setItem("capturedImage", base64String);
                 setImageUploaded(true);
-              };
+
+                try {
+                  const response = await fetch('https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json', 
+                      },
+                      body: JSON.stringify({ image: base64String }), 
+                  });
+  
+                  if (!response.ok) {
+                      throw new Error('Network response was not ok');
+                  }
+  
+                  const data = await response.json();
+                  console.log('Image uploaded successfully:', data);
+              } catch (error) {
+                  console.error('Error uploading image:', error);
+              }
+          };
+  
               reader.readAsDataURL(file);
             }
           };
@@ -88,6 +108,7 @@ useEffect(() => {
                     <h3 className="allow__text">
                       ALLOW A.I. <br /> TO SCAN YOUR FACE
                     </h3>
+                 
 
                     {showAnalysis && (
                     <div className="analysis__wrapper">
@@ -105,6 +126,10 @@ useEffect(() => {
                   </div>
                     )}
                   </div>
+
+                  <h3 className="allow__text--text">
+                  ALLOW A.I. <br /> TO ACCESS GALLERY
+                </h3>
 
                   <div className="cam1__box--wrapper" data-aos="fade-up" data-aos-delay="700">
                     <div className="cam1__box1"></div>
@@ -130,10 +155,7 @@ useEffect(() => {
                     </div>
                   </div>
                 </div>
-                <h3 className="allow__text">
-                  ALLOW A.I. <br /> TO ACCESS GALLERY
-                </h3>
-
+               
                 <div className="cam__cam--analysis">
                   <Link to="/" className="analysis__back click">
                     <div className="back__box">

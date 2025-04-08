@@ -169,8 +169,7 @@ const [loading, setLoading] = useState(false);
                 <div className="demographics__wrapper">
                   <div className="east__container">
                     <div
-                      className="east__box1"
-                      style={boxStyle(clickedBox1)}
+                      className={`east__box1 ${clickedBox1 ? "active" : ""}`}
                       onClick={handleBoxClick1}
                     >
                       <h4 className="east__h4">
@@ -179,8 +178,7 @@ const [loading, setLoading] = useState(false);
                       <h4 className="east__text--h4">RACE</h4>
                     </div>
                     <div
-                      className="east__box2"
-                      style={boxStyle(clickedBox2)}
+                      className={`east__box2 ${clickedBox2 ? "active" : ""}`}
                       onClick={handleBoxClick2}
                     >
                       <h4 className="east__h4">
@@ -189,8 +187,7 @@ const [loading, setLoading] = useState(false);
                       <h4 className="east__text--h4">AGE</h4>
                     </div>
                     <div
-                      className="east__box3"
-                      style={boxStyle(clickedBox3)}
+                      className={`east__box3 ${clickedBox3 ? "active" : ""}`}
                       onClick={handleBoxClick3}
                     >
                       <h4 className="east__h4">FEMALE</h4>
