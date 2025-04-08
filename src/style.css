@@ -173,6 +173,14 @@ padding-left: 20px;
   position: absolute;
 }
 
+.hide-left .box1,
+.hide-left .box2,
+.hide-left .box3 {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 .box1 {
   border: 0.5px dotted #242424;
   height: 500px;
@@ -272,6 +280,14 @@ height: 40px;
   justify-content: center;
   transition: opacity 0.3s ease;
   opacity: 1;
+}
+
+.hide-right .left__box1,
+.hide-right .left__box2,
+.hide-right .left__box3 {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .left__box1 {
