@@ -43,7 +43,7 @@ const Index = () => {
           <div className="header">
             <div className="header__container">
                   <div className="arrows">
-                    <div className={`left__page1--wrapper ${isHoveredLeft ? 'hide-right' : ''}`} data-aos="fade-right" data-aos-delay="400">
+                    <div className={`left__page1--wrapper ${isHoveredLeft ? 'move-right' : ''}`} data-aos="fade-right" data-aos-delay="400">
                       <div className="left__box1"></div>
                       <div className="left__box2"></div>
                       <div className="left__box3"
@@ -63,7 +63,7 @@ const Index = () => {
                       </div>
                   </div>
 
-                    <div className={`page1__wrapper ${isHoveredRight ? 'hide-left' : ''}`} data-aos="fade-left" data-aos-delay="400">
+                    <div className={`page1__wrapper ${isHoveredRight ? 'move-left' : ''}`} data-aos="fade-left" data-aos-delay="400">
                       <div className="box1"></div>
                       <div className="box2"></div>
                       <div className="box3"

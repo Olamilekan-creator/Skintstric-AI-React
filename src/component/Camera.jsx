@@ -99,6 +99,7 @@ useEffect(() => {
                     <div className="cam__box1"></div>
                     <div className="cam__box2"></div>
                     <div className="cam__box3"></div>
+                    <div className="cam__line"></div>
                     <div className="camera">
                       <img src={shutterIcon} alt="" className="shutter" onClick={handleShutterClick} />
                     </div>
@@ -135,6 +136,7 @@ useEffect(() => {
                     <div className="cam1__box1"></div>
                     <div className="cam1__box2"></div>
                     <div className="cam1__box3"></div>
+                    <div className="cam1__line"></div>
                     <div className="camera1">
                     <input 
                           type="file"

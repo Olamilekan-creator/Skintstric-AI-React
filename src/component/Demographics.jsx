@@ -8,6 +8,7 @@ import {
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ProgressBar from "../UI/ProgressBar";
 
 const Demographics = () => {
   const [percentage, setPercentage] = useState("0%");
@@ -21,7 +22,9 @@ const Demographics = () => {
   const [selectedEthnicityIndex, setSelectedEthnicityIndex] = useState(null);
 const [selectedAgeIndex, setSelectedAgeIndex] = useState(null);
 const [loading, setLoading] = useState(false);
-
+const [showGender, setShowGenders] = useState(false);
+const [selectedGenderIndex, setSelectedGenderIndex] = useState(null);
+const [selectedGender, setSelectedGender] = useState("");
 
   const handleBoxClick = (index) => {
     setLoading(true);
@@ -43,6 +46,16 @@ const [loading, setLoading] = useState(false);
     }, 500);
   };
 
+  const handleGenderClick = (index) => {
+    setLoading(true);
+    setTimeout(() => {
+    setPercentage(gender[index]?.confidence || "0%");
+    setSelectedGender(gender[index]?.genders || "");
+    setSelectedGenderIndex(index);
+    setLoading(false);
+    }, 500);
+  };
+
   const boxStyle = (isClicked) => {
     return {
         backgroundColor: isClicked ? "black" : "transparent",
@@ -54,12 +67,14 @@ const [loading, setLoading] = useState(false);
   const handleBoxClick1 = () => {
     setShowEthnicities(true);
     setShowAges(false);
+    setShowGenders(false);
     setClickedBox1(true);
     setClickedBox2(false);
     setClickedBox3(false);
   };
 
   const handleBoxClick2 = () => {
+    setShowGenders(false);
     setShowEthnicities(false);
     setShowAges(true);
     setClickedBox2(true);
@@ -68,6 +83,9 @@ const [loading, setLoading] = useState(false);
   };
 
   const handleBoxClick3 = () => {
+    setShowGenders(true);
+    setShowEthnicities(false);
+    setShowAges(false);
     setClickedBox3(true);
     setClickedBox1(false);
     setClickedBox2(false);
@@ -94,6 +112,11 @@ const [loading, setLoading] = useState(false);
     { ages: "70+", confidence: "0%" },
   ];
 
+  const gender = [
+    { genders: "Female", confidence: "99%"},
+    { genders: "Male", confidence: "1%" },
+  ];
+
   useEffect(() => {
     window.scrollTo(0, 0);
     AOS.init();
@@ -118,6 +141,9 @@ const [loading, setLoading] = useState(false);
     setClickedBox3(false);
     setSelectedEthnicityIndex(null);
     setSelectedAgeIndex(null);
+    setSelectedGender("");
+    setShowGenders(false);
+    setSelectedGenderIndex(null);
   };
 
   return (
@@ -190,21 +216,18 @@ const [loading, setLoading] = useState(false);
                       className={`east__box3 ${clickedBox3 ? "active" : ""}`}
                       onClick={handleBoxClick3}
                     >
-                      <h4 className="east__h4">FEMALE</h4>
+                      <h4 className="east__h4"> {selectedGender || "Select Gender"}</h4>
                       <h4 className="east__text--h4">SEX</h4>
                     </div>
                   </div>
 
                   <div className="percentage__box" data-aos="fade-up" data-aos-delay="700">
                     <h4 className="percentage__h4">
-                      {selectedEthnicity || selectedAge}
+                      {selectedEthnicity || selectedAge || selectedGender}
                     </h4>
                     <div className="percent__box">
-                      <div className={`percentage__circle ${loading ? "animated" : ""}`}
-                        style={{
-                          "--percentage": percentage,
-                        }}>
-                    <h4 className="percent">{percentage}</h4>
+                      <div className="percentage__circle">
+                        <ProgressBar percentage={percentage} />
                       </div>
                     </div>
                   </div>
@@ -266,11 +289,37 @@ const [loading, setLoading] = useState(false);
                         ))}
                       </>
                     )}
+
+                    {showGender && (
+                            <>
+                            {gender.map((genderGroup, index) => (
+                              <div
+                                className="east__asian"
+                                key={genderGroup.genders}
+                                onClick={() => handleGenderClick(index)}
+                                style={boxStyle(index === selectedGenderIndex)}
+                              >
+                                <div className="race__icon">
+                                  <FontAwesomeIcon
+                                    icon={faDiamond}
+                                    className="race__diamond"
+                                  />
+                                  <h4 className="east__asian--text">
+                                    {genderGroup.genders}
+                                  </h4>
+                                </div>
+                                <h4 className="east__asian--text">
+                                  {genderGroup.confidence}
+                                </h4>
+                              </div>
+                            ))}
+                          </>
+                    )}
                   </div>
                 </div>
 
                 <div className="prepare__demo">
-                  <Link to="/estimation" className="analysis__back click">
+                  <Link to="/" className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}

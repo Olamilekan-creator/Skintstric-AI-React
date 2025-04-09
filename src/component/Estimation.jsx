@@ -137,7 +137,7 @@ const Estimation = () => {
                 </div>
 
                 <div className="prepare">
-                  <Link to="/camera" className="analysis__back click">
+                  <Link to="/" className="analysis__back click">
                     <div className="back__box">
                       <FontAwesomeIcon
                         icon={faCaretLeft}

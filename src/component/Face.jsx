@@ -50,7 +50,7 @@ const Face = () => {
         window.scrollTo(0, 0);
         AOS.init();
       }, []);
-    
+
       document.addEventListener('aos:in', ({ detail }) => {
         console.log('animated in', detail);
       });
@@ -102,29 +102,33 @@ const Face = () => {
                     </div>
 
                     <div className="picture__analysis">
-                        <Link to="/camera" className="picture__back click" data-aos="fade-left" data-aos-delay="1500">
+                        <Link to="/" className="picture__back click">
                             <div className="picture__back--box">
                                 <FontAwesomeIcon icon={faCaretLeft} className="picture__back--back" />
                             </div>
                             <h3 className="picture__back--text">BACK</h3>
                         </Link>
+
+                        {!imageCaptured && (
                         <div className="option__container">
-                            <h4 className="option__title" data-aos="fade-up" data-aos-delay="700">TO GET BETTER RESULTS MAKE SURE TO HAVE</h4>
+                            <h4 className="option__title">TO GET BETTER RESULTS MAKE SURE TO HAVE</h4>
                             <div className="option__subtitle--wrapper">
-                                <div className="option__subtitle--icon" data-aos="fade-left" data-aos-delay="900">
+                                <div className="option__subtitle--icon">
                                     <FontAwesomeIcon icon={faDiamond} className="diamond__icon" />
                                     <h4 className="option__subtitle--text">NEUTRAL EXPRESSION</h4>
                                 </div>
-                                <div className="option__subtitle--icon" data-aos="fade-left" data-aos-delay="1100">
+                                <div className="option__subtitle--icon">
                                     <FontAwesomeIcon icon={faDiamond} className="diamond__icon" />
                                     <h4 className="option__subtitle--text">FRONTAL POSE</h4>
                                 </div>
-                                <div className="option__subtitle--icon" data-aos="fade-left" data-aos-delay="1300">
+                                <div className="option__subtitle--icon">
                                     <FontAwesomeIcon icon={faDiamond} className="diamond__icon" />
                                     <h4 className="option__subtitle--text">ADEQUATE LIGHTING</h4>
                                 </div>
                             </div>
                         </div>
+                          )}
+                       
 
                         {imageCaptured && (
                         <Link to="/estimation" className="picture__front--text click" onClick={stopCamera}>
