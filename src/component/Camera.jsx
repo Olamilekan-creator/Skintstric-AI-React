@@ -39,6 +39,8 @@ const handleFileChange = (event) => {
   
                   const data = await response.json();
                   console.log('Image uploaded successfully:', data);
+
+                  localStorage.setItem("analysisResult", JSON.stringify(data.data));
               } catch (error) {
                   console.error('Error uploading image:', error);
               }

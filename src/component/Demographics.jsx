@@ -25,6 +25,29 @@ const [loading, setLoading] = useState(false);
 const [showGender, setShowGenders] = useState(false);
 const [selectedGenderIndex, setSelectedGenderIndex] = useState(null);
 const [selectedGender, setSelectedGender] = useState("");
+const [analysis, setAnalysis] = useState(null);
+
+useEffect(() => {
+const storedAnalysis = localStorage.getItem("analysisResult");
+if (storedAnalysis) {
+  const parsed = JSON.parse(storedAnalysis);
+  setAnalysis(parsed);
+
+  const topRace = Object.entries(parsed.race).reduce((a, b) => (b[1] > a[1] ? b : a));
+  setSelectedEthnicity(capitalize(topRace[0]));
+  setPercentage(`${(topRace[1] * 100).toFixed(0)}%`);
+
+  const topAge = Object.entries(parsed.age).reduce((a, b) => (b[1] > a[1] ? b : a));
+  setSelectedAge(topAge[0]);
+
+  const topGender = Object.entries(parsed.gender).reduce((a, b) => (b[1] > a[1] ? b : a));
+  setSelectedGender(capitalize(topGender[0]));
+}
+}, []);
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
   const handleBoxClick = (index) => {
     setLoading(true);
@@ -91,31 +114,27 @@ const [selectedGender, setSelectedGender] = useState("");
     setClickedBox2(false);
   };
 
-  const ethnicities = [
-    { name: "East Asian", confidence: "96%" },
-    { name: "White", confidence: "6%" },
-    { name: "Black", confidence: "3%" },
-    { name: "South Asian", confidence: "2%" },
-    { name: "Latino Hispanic", confidence: "0%" },
-    { name: "South East Asian", confidence: "0%" },
-    { name: "Middle Eastern", confidence: "0%" },
-  ];
+  const ethnicities = analysis
+  ? Object.entries(analysis.race).map(([name, confidence]) => ({
+    name: capitalize(name),
+    confidence: `${(confidence * 100).toFixed(0)}%`,
+  }))
+  : [];
 
-  const age = [
-    { ages: "0-9", confidence: "0%" },
-    { ages: "10-19", confidence: "4%" },
-    { ages: "20-29", confidence: "96%" },
-    { ages: "30-39", confidence: "2%" },
-    { ages: "40-49", confidence: "0%" },
-    { ages: "50-59", confidence: "0%" },
-    { ages: "60-69", confidence: "0%" },
-    { ages: "70+", confidence: "0%" },
-  ];
+  const age = analysis
+  ? Object.entries(analysis.age).map(([ages, confidence]) => ({
+      ages,
+      confidence: `${(confidence * 100).toFixed(0)}%`,
+    }))
+  : [];
 
-  const gender = [
-    { genders: "Female", confidence: "99%"},
-    { genders: "Male", confidence: "1%" },
-  ];
+
+  const gender = analysis
+  ? Object.entries(analysis.gender).map(([genders, confidence]) => ({
+      genders: capitalize(genders),
+      confidence: `${(confidence * 100).toFixed(0)}%`,
+    }))
+  : [];
 
   useEffect(() => {
     window.scrollTo(0, 0);
