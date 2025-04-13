@@ -27,6 +27,7 @@
 
 .container {
   width: 100%;
+ padding: 0 20px;
   border: 2px solid black;
   height: 100vh;
 }
@@ -452,9 +453,9 @@ height: 40px;
 }
 
 .web__text {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .web__box--wrapper {
@@ -1467,7 +1468,7 @@ margin-top: 10vh;
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  padding-top: 100px;
+  padding-top: 70px;
 }
 
 .east__asian,
@@ -1476,7 +1477,7 @@ margin-top: 10vh;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #f3f3f4;
-  width: 448px;
+  width: 100%;
   height: 48px;
   padding: 0 20px;
 }
@@ -1514,6 +1515,7 @@ margin-top: 10vh;
 .east__container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .east__box1, 
@@ -1521,13 +1523,12 @@ margin-top: 10vh;
 .east__box3 {
   border: none;
   border-top: 1px solid black;
-  width: 208px;
   height: 104px;
   margin-bottom: 8px;
   background-color: #f3f3f4;
   font-size: 16px;
   font-weight: 400;
-  line-height: 3;
+  line-height: 2.5;
   padding: 0 20px;
 }
 
@@ -1551,16 +1552,16 @@ margin-top: 10vh;
   border: none;
   border-top: 1px solid black;
   width: 100%;
-  width: 1168px;
-  height: 544px;
+  max-width: 1200px;
+  margin: 0 auto;
   background-color: #f3f3f4;
 }
 
 .percent__box {
-  padding: 10px 20px;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  padding: 10px 20px;
 }
 
 .percentage__h4 {
@@ -1590,7 +1591,8 @@ margin-top: 10vh;
 .race__container {
   border: none;
   border-top: 1px solid black;
-  width: 448px;
+  width: 100%;
+  max-width: 500px;
   height: 544px;
   background-color: #f3f3f4;
   max-width: 100%;
@@ -1647,6 +1649,7 @@ margin-top: 10vh;
   .prepare__box--wrapper {
     padding: 10% 0;
   }
+ 
   .set__box--wrapper {
     padding: 0 0;
   }
@@ -1694,15 +1697,14 @@ margin-top: 10vh;
   }
 
   .percentage__box {
-    width: 960px;
-    height: 400px;
+width: 100%;
   }
   .race__container {
     width: 960px;
     height: 430px;
   }
   .web__text {
-    margin-top: 5px;
+    margin-top: 35px;
   }
 
   .percent {
@@ -1747,16 +1749,10 @@ margin-top: 10vh;
     font-size: 30px;
   }
 
-  .east__container {
-    flex-direction: row;
-    gap: 10px;
-    margin: 0 auto;
-  }
-
   .east__box1,
   .east__box2,
   .east__box3 {
-    width: calc(680px / 3);
+    width: 100%;
     height: 70px;
     line-height: 2;
   }
@@ -1778,15 +1774,10 @@ margin-top: 10vh;
     font-size: 25px;
   }
 
-  .percentage__box {
-    margin: 0 auto;
-    width: 700px;
-    height: 320px;
-  }
   .race__container {
-    width: 700px;
     height: 300px;
   }
+
   .web__text {
     margin-top: 5px;
   }
@@ -1797,7 +1788,7 @@ margin-top: 10vh;
 
   .east__asian,
   .race__text {
-    width: 650px;
+width: 100%;
     margin: 0 auto;
   }
   .set__box1,
@@ -1891,7 +1882,7 @@ margin-top: 10vh;
   }
 
   .percentage__box {
-    width: 400px;
+width: 100%;
     height: 250px;
   }
   .race__container {
@@ -1908,10 +1899,6 @@ margin-top: 10vh;
     display: none;
   }
 
-  .east__asian,
-  .race__text {
-    width: 400px;
-  }
   .set__box1,
   .web__box1,
   .cam__box1 {
