@@ -11,14 +11,15 @@ import Estimation from "./component/Estimation";
 import Setting from "./component/Setting";
 import Face from "./component/Face";
 import Home from "./UI/Home";
+import './input.css'
 
 function App() {
   return (
   <Router>
     <div>
       <Routes>
-       {/* <Route path="#" element={<Home />} /> */}
-   <Route path="/" element={<Index />} />
+       <Route path="/" element={<Home />} />
+   <Route path="/#" element={<Index />} />
    <Route path="/introduce" element={<Introduce />} />
    <Route path="/location" element={<Location />} />
    <Route path="/camera" element={<Camera />} />
