@@ -18,6 +18,10 @@
   transform: scale(0.95);
 }
 
+.landing {
+  overflow-x: hidden;
+}
+
 /* Header */
 .row,
 .nav__row {
