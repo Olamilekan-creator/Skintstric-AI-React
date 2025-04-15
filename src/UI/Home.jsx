@@ -1,11 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
+import gsap from "gsap";
 
 function Home() {
   const [isHoveredLeft, setIsHoveredLeft] = useState(false);
   const [isHoveredRight, setIsHoveredRight] = useState(false);
+  const middleRef = useRef(null);
+  const outerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.set(middleRef.current, { opacity: 0, scale: 0.8 });
+    gsap.set(outerRef.current, { opacity: 0, scale: 0.8 });
+  }, []);
+
+  const handleHover = () => {
+    gsap.to(middleRef.current, {
+      opacity: 1,
+      scale: 1,
+      x: "-20px",
+      duration: 0.6,
+      ease: "power2.out",
+    });
+
+    gsap.to(outerRef.current, {
+      opacity: 1,
+      scale: 1,
+      x: "-35px",
+      duration: 0.6,
+      ease: "power2.out",
+    });
+  };
+
+  const handleHoverLeave = () => {
+    gsap.to(middleRef.current, {
+      opacity: 0,
+      scale: 0.8,
+      x: "0px",
+      duration: 0.6,
+      ease: "power2.out",
+    });
+
+    gsap.to(outerRef.current, {
+      opacity: 0,
+      scale: 0.8,
+      x: "0px",
+      duration: 0.6,
+      ease: "power2.out",
+    });
+  };
 
   return (
     <section>
@@ -27,10 +71,10 @@ function Home() {
         {/* Arrows section */}
         <div className=" flex justify-between items-center">
           <div className={`relative transform rotate-45 transition-all duration-500 ease-in-out ${isHoveredLeft ? "opacity-0 scale-0 pointer-events-auto" : "opacity-100 scale-100 pointer-events-auto"}`}>
-            <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]"></div>
-              <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] mt-6"></div>
+            <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px] hidden"></div>
+              <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] hidden mt-6"></div>
                 <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] mt-12">
-                  <div className="flex -mt-[30%] -mr-[40%] transform rotate-90">
+                 <div className="flex -mt-[30%] -mr-[40%] transform rotate-90">
                   <div className="flex -mt-[19%] -mr-[30%] transform -rotate-90">
                     <div className={`absolute flex justify-center transform -rotate-90 items-center border-solid bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
                       onMouseEnter={() => setIsHoveredRight(true)}
@@ -50,9 +94,11 @@ function Home() {
           </div>
 
           <div className={`relative transform rotate-45 transition-all duration-500 ease-in-out ${isHoveredRight ? "opacity-0 scale-0 pointer-events-auto" : "opacity-100 scale-100 pointer-events-auto"}`}>
-            <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]"></div>
-              <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] ml-6"></div>
-                <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] ml-12">
+            <div ref={outerRef} className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px] ml-10 -mt-2"></div>
+              <div ref={middleRef} className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] -mt-2 ml-12"></div>
+                <div className={`absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] ml-12`}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleHoverLeave}>
                   <div className="flex flex-row -ml-[60%] -mb-[27%]">
                     <h3 className="text-l transform -rotate-45">TAKE TEST</h3>
                     <div className="flex flex-row">
