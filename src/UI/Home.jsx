@@ -69,7 +69,7 @@ function Home() {
         </nav>
 
         {/* Arrows section */}
-        <div className=" flex justify-between items-center">
+        <div className=" flex justify-between items-center pt-0 lg:pt-[15%] xl:pt-0 md:pt-7">
           <div className={`relative transform rotate-45 transition-all duration-500 ease-in-out ${isHoveredLeft ? "opacity-0 scale-0 pointer-events-auto" : "opacity-100 scale-100 pointer-events-auto"}`}>
             <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px] hidden"></div>
               <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] hidden mt-6"></div>
@@ -119,7 +119,7 @@ function Home() {
         </div>
         
         <h1
-          className={`text-8xl pt-40 font-normal text-black text-center transition-transform duration-500 ease-in-out ${
+          className={`text-8xl pt-40 font-normal text-black text-center transition-transform duration-500 ease-in-out text-l lg:text-7xl xl:text-l md:text-[45px] sm:text-[40px] ${
             isHoveredLeft
               ? "translate-x-[-32%]"
               : isHoveredRight
@@ -137,7 +137,7 @@ function Home() {
           }`}>skincare</span>
         </h1>
 
-        <div className="max-w-[340px] mt-[25%] pl-3">
+        <div className="max-w-[340px] mt-[25%] pl-3 pt-[50%] pt-0 lg:pt-[35%] xl:pt-0 md:pt-[45%]">
           SKINSTRIC DEVELOPED AN A.I. THAT CREATES A HIGHLY-PERSONALISED ROUTINE
           TALORED TO WHAT YOUR SKIN NEEDS.
         </div>
