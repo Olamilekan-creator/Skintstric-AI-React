@@ -119,7 +119,7 @@ function Home() {
         </div>
         
         <h1
-          className={`text-8xl pt-40 font-normal text-black text-center transition-transform duration-500 ease-in-out text-l lg:text-7xl xl:text-l md:text-[45px] sm:text-[40px] ${
+          className={`text-8xl pt-40 font-normal text-black text-center transition-transform duration-500 ease-in-out text-l lg:text-7xl xl:text-l md:text-[45px] sm:text-[60px] ${
             isHoveredLeft
               ? "translate-x-[-32%]"
               : isHoveredRight
