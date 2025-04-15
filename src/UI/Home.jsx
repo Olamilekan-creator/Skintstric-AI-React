@@ -28,13 +28,13 @@ function Home() {
         <div className=" flex justify-between items-center">
           <div className={`relative transform rotate-45 transition-all duration-500 ease-in-out ${isHoveredLeft ? "opacity-0 scale-0 pointer-events-auto" : "opacity-100 scale-100 pointer-events-auto"}`}>
             <div
-              className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px] transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg"
+              className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]"
             >
               <div
-                className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] transition-all duration-300 ease-in-out hover:border-blue-500 hover:bg-blue-500"
+                className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] transition-all duration-300 ea"
               >
                 <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px]">
-                  <div className="flex flex-col justify-center items-flex-start -mt-[19%] -mr-[30%]">
+                  <div className="flex justify-between -mt-[19%] -mr-[30%]">
                     <div
                       className={`absolute flex justify-center transform rotate-90 items-center border-solid bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
                       onMouseEnter={() => setIsHoveredRight(true)}
