@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   const [isHoveredLeft, setIsHoveredLeft] = useState(false);
@@ -27,54 +27,45 @@ function Home() {
         {/* Arrows section */}
         <div className=" flex justify-between items-center">
           <div className={`relative transform rotate-45 transition-all duration-500 ease-in-out ${isHoveredLeft ? "opacity-0 scale-0 pointer-events-auto" : "opacity-100 scale-100 pointer-events-auto"}`}>
-            <div
-              className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]"
-            >
-              <div
-                className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] transition-all duration-300 ea"
-              >
-                <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px]">
-                  <div className="flex justify-between -mt-[19%] -mr-[30%]">
-                    <div
-                      className={`absolute flex justify-center transform rotate-90 items-center border-solid bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
+            <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]"></div>
+              <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] mt-6"></div>
+                <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] mt-12">
+                  <div className="flex -mt-[19%] -mr-[30%] transform rotate-90">
+                  <div className="flex -mt-[19%] -mr-[30%] transform -rotate-90">
+                    <div className={`absolute flex justify-center transform rotate-90 items-center border-solid bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
                       onMouseEnter={() => setIsHoveredRight(true)}
-                      onMouseLeave={() => setIsHoveredRight(false)}
-                    >
+                      onMouseLeave={() => setIsHoveredRight(false)}>
                       <div className="absolute flex justify-center transform rotate-90 items-center border-dotted bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] pointer-events-none">
                         <FontAwesomeIcon
                           icon={faCaretRight}
-                          className="text-xl transform -rotate-45"
-                        />
-                      </div>
-                    </div>
-                    <h3 className="text-l transform -rotate-45">
+                          className="text-xl transform -rotate-45"/>
+                          </div>
+                          </div>
+                    <h3 className="text-l transform -rotate-45 ">
                       DISCOVER A.I.
                     </h3>
-                  </div>
-                </div>
               </div>
+            </div>
             </div>
           </div>
 
           <div className={`relative transform rotate-45 transition-all duration-500 ease-in-out ${isHoveredRight ? "opacity-0 scale-0 pointer-events-auto" : "opacity-100 scale-100 pointer-events-auto"}`}>
-            <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]">
-              <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px]">
-                <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px]">
-                  <div className="flex flex-col ">
+            <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px]"></div>
+              <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] ml-6"></div>
+                <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] ml-12">
+                  <div className="flex flex-row  -ml-[60%] -mb-[27%]">
                     <h3 className="text-l transform -rotate-45">TAKE TEST</h3>
+                    <div className="flex ">
                     <Link to="/introduce" className={`absolute flex justify-center items-center border-solid bg-white border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
                                           onMouseEnter={() => setIsHoveredLeft(true)}
-                                          onMouseLeave={() => setIsHoveredLeft(false)}
-                    >
+                                          onMouseLeave={() => setIsHoveredLeft(false)}></Link>
                       <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[35px] h-[35px]">
                         <FontAwesomeIcon
                           icon={faCaretRight}
                           className="text-xl transform -rotate-45"
                         />
                       </div>
-                    </Link>
-                  </div>
-                </div>
+                      </div>
               </div>
             </div>
           </div>

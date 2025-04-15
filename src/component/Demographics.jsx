@@ -29,6 +29,7 @@ const [analysis, setAnalysis] = useState(null);
 
 useEffect(() => {
 const storedAnalysis = localStorage.getItem("analysisResult");
+console.log("Stored Analysis:", storedAnalysis); 
 if (storedAnalysis) {
   const parsed = JSON.parse(storedAnalysis);
   setAnalysis(parsed);
@@ -45,11 +46,10 @@ if (storedAnalysis) {
 }
 }, []);
 
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const handleBoxClick = (index) => {
+    if (!analysis || ethnicities.length === 0) return;
     setLoading(true);
     setTimeout(() => {
       setPercentage(ethnicities[index]?.confidence || "0%");
@@ -135,19 +135,6 @@ function capitalize(str) {
       confidence: `${(confidence * 100).toFixed(0)}%`,
     }))
   : [];
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    AOS.init();
-  }, []);
-
-  document.addEventListener('aos:in', ({ detail }) => {
-    console.log('animated in', detail);
-  });
-  
-  document.addEventListener('aos:out', ({ detail }) => {
-    console.log('animated out', detail);
-  });
 
   const handleReset = () => {
     setPercentage("0%");
@@ -240,7 +227,7 @@ function capitalize(str) {
                     </div>
                   </div>
 
-                  <div className="percentage__box" data-aos="fade-up" data-aos-delay="700">
+                  <div className="percentage__box">
                     <h4 className="percentage__h4">
                       {selectedEthnicity || selectedAge || selectedGender}
                     </h4>
@@ -251,7 +238,7 @@ function capitalize(str) {
                     </div>
                   </div>
 
-                  <div className="race__container" data-aos="fade-up" data-aos-delay="900">
+                  <div className="race__container">
                     <div className="race__text">
                       <h4 className="race__text--text">RACE</h4>
                       <h4 className="race__text--text">A.I. CONFIDENCE</h4>
