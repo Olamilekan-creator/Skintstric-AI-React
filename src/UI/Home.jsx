@@ -70,6 +70,7 @@ function Home() {
             </div>
           </div>
         </div>
+        
         <h1
           className={`text-8xl pt-40 font-normal text-black text-center transition-transform duration-500 ease-in-out ${
             isHoveredLeft

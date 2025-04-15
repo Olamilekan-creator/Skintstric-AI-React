@@ -6,8 +6,6 @@ import {
   faDiamond,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import ProgressBar from "../UI/ProgressBar";
 
 const Demographics = () => {
@@ -22,7 +20,7 @@ const Demographics = () => {
   const [selectedEthnicityIndex, setSelectedEthnicityIndex] = useState(null);
 const [selectedAgeIndex, setSelectedAgeIndex] = useState(null);
 const [loading, setLoading] = useState(false);
-const [showGender, setShowGenders] = useState(false);
+const [showGender, setShowGender] = useState(false);
 const [selectedGenderIndex, setSelectedGenderIndex] = useState(null);
 const [selectedGender, setSelectedGender] = useState("");
 const [analysis, setAnalysis] = useState(null);
@@ -90,14 +88,14 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
   const handleBoxClick1 = () => {
     setShowEthnicities(true);
     setShowAges(false);
-    setShowGenders(false);
+   setShowGender (false);
     setClickedBox1(true);
     setClickedBox2(false);
     setClickedBox3(false);
   };
 
   const handleBoxClick2 = () => {
-    setShowGenders(false);
+    setShowGender(false);
     setShowEthnicities(false);
     setShowAges(true);
     setClickedBox2(true);
@@ -106,7 +104,7 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
   };
 
   const handleBoxClick3 = () => {
-    setShowGenders(true);
+    setShowGender(true);
     setShowEthnicities(false);
     setShowAges(false);
     setClickedBox3(true);
@@ -148,7 +146,7 @@ const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
     setSelectedEthnicityIndex(null);
     setSelectedAgeIndex(null);
     setSelectedGender("");
-    setShowGenders(false);
+    setShowGender(false);
     setSelectedGenderIndex(null);
   };
 
