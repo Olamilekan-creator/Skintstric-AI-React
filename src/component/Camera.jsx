@@ -13,6 +13,7 @@ const [showAnalysis, setShowAnalysis] = useState(false);
 const [imageUploaded, setImageUploaded] = useState(false);
 const [previewImage, setPreviewImage] = useState("");
 const [showLeaveStay, setShowLeaveStay] = useState(true);
+const [analysis, setAnalysis] = useState(null);
 
 const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -41,6 +42,7 @@ const handleFileChange = (event) => {
                   console.log('Image uploaded successfully:', data);
 
                   localStorage.setItem("analysisResult", JSON.stringify(data.data));
+                  setAnalysis(data.data);
               } catch (error) {
                   console.error('Error uploading image:', error);
               }
