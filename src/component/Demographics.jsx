@@ -26,28 +26,28 @@ const [selectedGender, setSelectedGender] = useState("");
 const [analysis, setAnalysis] = useState(null);
 
 useEffect(() => {
-const storedAnalysis = localStorage.getItem("analysisResult");
-console.log("Stored Analysis:", storedAnalysis); 
-if (storedAnalysis) {
-  const parsed = JSON.parse(storedAnalysis);
-  setAnalysis(parsed);
+  const storedAnalysis = JSON.parse(localStorage.getItem("analysisResult"));
 
-  const topRace = Object.entries(parsed.race).reduce((a, b) => (b[1] > a[1] ? b : a));
+if (storedAnalysis) {
+  setAnalysis(storedAnalysis);
+  
+  const topRace = Object.entries(storedAnalysis.race).reduce((a, b) => (b[1] > a[1] ? b : a));
   setSelectedEthnicity(capitalize(topRace[0]));
   setPercentage(`${(topRace[1] * 100).toFixed(0)}%`);
 
-  const topAge = Object.entries(parsed.age).reduce((a, b) => (b[1] > a[1] ? b : a));
+  const topAge = Object.entries(storedAnalysis.age).reduce((a, b) => (b[1] > a[1] ? b : a));
   setSelectedAge(topAge[0]);
 
-  const topGender = Object.entries(parsed.gender).reduce((a, b) => (b[1] > a[1] ? b : a));
+  const topGender = Object.entries(storedAnalysis.gender).reduce((a, b) => (b[1] > a[1] ? b : a));
   setSelectedGender(capitalize(topGender[0]));
+} else {
+  console.log("No analysis result found in localStorage.");
 }
 }, []);
 
 const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
   const handleBoxClick = (index) => {
-    if (!analysis || ethnicities.length === 0) return;
     setLoading(true);
     setTimeout(() => {
       setPercentage(ethnicities[index]?.confidence || "0%");
