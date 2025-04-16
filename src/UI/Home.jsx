@@ -74,7 +74,7 @@ function Home() {
             <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[500px] h-[500px] hidden"></div>
               <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[470px] h-[470px] hidden mt-6"></div>
                 <div className="absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] mt-12">
-                 <div className="flex -mt-[30%] -mr-[40%] transform rotate-90">
+                 <div className="flex my-[60px]  -mt-[30%] -mr-[40%] transform rotate-90">
                   <div className="flex -mt-[19%] -mr-[30%] transform -rotate-90">
                     <div className={`absolute flex justify-center transform -rotate-90 items-center border-solid bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
                       onMouseEnter={() => setIsHoveredRight(true)}
@@ -85,7 +85,7 @@ function Home() {
                           className="text-xl transform -rotate-45"/>
                           </div>
                           </div>
-                    <h3 className="text-l transform -rotate-45 ">
+                    <h3 className="text-l transform -rotate-45 pt-[0px]">
                       DISCOVER A.I.
                     </h3>
               </div>
@@ -99,8 +99,8 @@ function Home() {
                 <div className={`absolute flex justify-center items-center border-dotted bg-white-100 border-gray-500 border-2 w-[440px] h-[440px] ml-12`}
                 onMouseEnter={handleHover}
                 onMouseLeave={handleHoverLeave}>
-                  <div className="flex flex-row -ml-[60%] -mb-[27%]">
-                    <h3 className="text-l transform -rotate-45">TAKE TEST</h3>
+                  <div className="flex my-[70px] gap-6 flex-row -ml-[60%] -mb-[27%]">
+                    <h3 className="text-l pt-[70px] transform -rotate-45">TAKE TEST</h3>
                     <div className="flex flex-row">
                     <Link to="/introduce"  className={`absolute flex justify-center items-center border-solid bg-white-100 border-gray-500 border-2 w-[35px] h-[35px] transition-transform duration-300 ease-out hover:scale-150 pointer-events-auto`}
                       onMouseEnter={() => setIsHoveredLeft(true)}
